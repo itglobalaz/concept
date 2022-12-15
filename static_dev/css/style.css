@@ -1,4 +1,21 @@
 /********** Template CSS **********/
+@font-face {
+    font-family: 'concept';
+    src: url('../fonts/monsterrat/Montserrat-Regular.ttf') format("truetype");
+    font-weight: bold;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'concept-regular';
+    src: url('../fonts/monsterrat/Montserrat-Bold.ttf') format("truetype");
+}
+
+body {
+    font-family: concept, Serif;
+    font-size: 18px !important;
+}
+
 :root {
     --primary: #B78D65;
     --light: #F8F8F8;
@@ -10,7 +27,8 @@ h2,
 .h1,
 .h2,
 .fw-bold {
-    font-weight: 600 !important;
+    /*font-weight: 600 !important;*/
+    font-family: concept-regular, serif;
 }
 
 h3,
@@ -18,7 +36,13 @@ h4,
 .h3,
 .h4,
 .fw-medium {
-    font-weight: 500 !important;
+    font-weight: 700 !important;
+    font-family: concept-regular, serif;
+    font-size: 1.50rem;
+}
+
+p {
+    font-family: concept, Serif!important;
 }
 
 h5,
@@ -27,6 +51,8 @@ h6,
 .h6,
 .fw-normal {
     font-weight: 400 !important;
+    font-family: concept-regular, serif;
+
 }
 
 .back-to-top {
@@ -115,9 +141,10 @@ h6,
     margin-right: 30px;
     padding: 30px 0;
     color: var(--dark);
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     outline: none;
+    font-family: concept-regular;
 }
 
 .navbar .navbar-nav .nav-link:hover,
@@ -236,7 +263,7 @@ h6,
     background-size: cover;
 }
 
-.breadcrumb-item+.breadcrumb-item::before {
+.breadcrumb-item + .breadcrumb-item::before {
     color: var(--light);
 }
 
@@ -550,4 +577,12 @@ h6,
 
 .footer .copyright a:hover {
     color: var(--primary);
+}
+
+.flag-icon {
+    margin: 5px;
+}
+
+.nav-link {
+    font-size: 16px;
 }

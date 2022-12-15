@@ -1,12 +1,15 @@
+{% load config_tag %}
+{% load i18n %}
+{% get_services as services %}
  <!-- Footer Start -->
     <div class="container-fluid bg-dark text-body footer mt-5 pt-5 px-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <h3 class="text-light mb-4">Address</h3>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>Azerbaijan, Baku</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>+9945049965880</p>
-                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>info@example.com</p>
+                    <h3 class="text-light mb-4">{% trans 'Ünvan' %}</h3>
+                    <a href="{{ config.map }}"><p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>{{ config.address }}</p></a>
+                    <a href="tel:{{ config.phone }}"><p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>{{ config.phone}}</p></a>
+                    <a href="mailto:{{ config.email }}"><p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>{{ config.email }}</p></a>
                     <div class="d-flex pt-2">
                         <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -15,27 +18,26 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h3 class="text-light mb-4">Services</h3>
-                    <a class="btn btn-link" href="">Architecture</a>
-                    <a class="btn btn-link" href="">3D Animation</a>
-                    <a class="btn btn-link" href="">House Planning</a>
-                    <a class="btn btn-link" href="">Interior Design</a>
-                    <a class="btn btn-link" href="">Construction</a>
+                    <h3 class="text-light mb-4">{% trans 'Xidmətlər' %}</h3>
+
+                    {% for service in services %}
+                        <a class="btn btn-link" href="{{ service.get_service_url }}">{{ service.name }}</a>
+                    {% endfor %}
+
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h3 class="text-light mb-4">Quick Links</h3>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
+                    <h3 class="text-light mb-4">{% trans 'Xəritə' %}</h3>
+                    <a class="btn btn-link" href="">{% trans 'Ana səhifə' %}</a>
+                    <a class="btn btn-link" href="">{% trans 'Haqqımızda' %}</a>
+                    <a class="btn btn-link" href="">{% trans 'Xidmətlər' %}</a>
+                    <a class="btn btn-link" href="">{% trans 'Əlaqə' %}</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h3 class="text-light mb-4">Newsletter</h3>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <h3 class="text-light mb-4">{% trans 'Abunə olun' %}</h3>
+                    <p>{% trans 'Yeniliklərdən xəbər tutmaq üçün abunə olun' %}</p>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="{% trans 'Poçt adresiniz' %}">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">{% trans 'Abunə ol' %}</button>
                     </div>
                 </div>
             </div>
@@ -44,11 +46,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a href="#">Concept House</a>, All Right Reserved.
+                        &copy; <a href="#">Concept House</a>, {% trans 'Bütün hüquqlar qorunur' %}. {% now "Y" %}
                     </div>
                     <div class="col-md-6 text-center text-md-end">
-                        Designed By <a href="https://itglobal.az/az">ITGLOBAL</a>
-                        <br> Distributed By: <a class="border-bottom" href="https://SULEYMAN.com" target="_blank">SULEYMAN</a>
+                        Powered by: <a target="_blank" href="https://itglobal.az/az">IT GLOBAL</a>
                     </div>
                 </div>
             </div>
