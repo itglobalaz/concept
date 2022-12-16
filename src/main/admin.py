@@ -1,6 +1,6 @@
 from django.contrib import admin
 from modeltranslation.translator import translator, TranslationOptions
-from src.main.models import Slider, About, Services, WhyUs, WhyUsReason, Team, Testimonials
+from src.main.models import Slider, About, Services, WhyUs, WhyUsReason, Team, Testimonials, Project
 from django_summernote.models import Attachment
 
 admin.site.unregister(Attachment)
@@ -59,3 +59,11 @@ class TestimonialsTranslationOption(TranslationOptions):
 
 
 translator.register(Testimonials, TestimonialsTranslationOption)
+
+
+class ProjectTranslationOption(TranslationOptions):
+    fields = ('name', 'description',)
+    required_languages = ('az',)
+
+
+translator.register(Project, ProjectTranslationOption)

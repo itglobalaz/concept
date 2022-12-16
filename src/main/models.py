@@ -111,9 +111,10 @@ class Testimonials(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=255, verbose_name="Ad")
     description = models.TextField(verbose_name='Məlumat')
-    start_date = models.DateTimeField(verbose_name="Tarix")
+    start_date = models.DateField(verbose_name="Tarix")
     service = models.ForeignKey(Services, on_delete=models.CASCADE, verbose_name="Xidmət")
     style = models.CharField(max_length=255, verbose_name="Stil")
+    slug = models.SlugField(unique=True, null=True)
 
     class Meta:
         verbose_name = 'Layihə'
@@ -121,3 +122,8 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ProjectPhoto(models.Model):
+    chooice = models.ForeignKey(Project, verbose_name='Layihə', on_delete=models.CASCADE, related_name='project_photo')
+    photo = models.ImageField(upload_to='projects/', verbose_name='Şəkil')

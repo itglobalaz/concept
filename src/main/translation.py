@@ -2,7 +2,7 @@ from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 from modeltranslation.admin import TabbedTranslationAdmin, TranslationTabularInline
 
-from src.main.models import Slider, About, Services, WhyUsReason, WhyUs, Team, Testimonials
+from src.main.models import Slider, About, Services, WhyUsReason, WhyUs, Team, Testimonials, Project, ProjectPhoto
 
 
 class SliderTranslationOptions(TabbedTranslationAdmin):
@@ -76,3 +76,18 @@ class TestimonialTranslationOptions(TabbedTranslationAdmin):
 
 
 admin.site.register(Testimonials, TestimonialTranslationOptions)
+
+
+class ProjectPhotoInline(admin.StackedInline):
+    model = ProjectPhoto
+    extra = 1
+
+
+class ProjectTranslationOptions(TabbedTranslationAdmin, SummernoteModelAdmin):
+    list_display = ('name',)
+    prepopulated_fields = ({'slug': ('name',)})
+    summernote_fields = ('description',)
+    inlines = [ProjectPhotoInline]
+
+
+admin.site.register(Project, ProjectTranslationOptions)
