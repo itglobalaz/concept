@@ -1,0 +1,55 @@
+{% extends 'wrapper/base.html' %}
+{% load static %}
+{% load i18n %}
+    {% block title %}<title>{{project.name}}</title>{% endblock title %}
+    {% block description %}<meta content="{{ project.description|truncatechars:255 }}" name="description">{% endblock description %}
+{% block content %}
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <h1 class="display-1 text-white animated slideInDown">{{project.name }}</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb text-uppercase mb-0">
+                    <li class="breadcrumb-item"><a class="text-white" href="{% url 'home' %}">{% trans 'Ana səhifə' %}</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="{% url 'projects' %}">{% trans 'LAYİHƏLƏR' %}</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">{{project.name}}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">{% trans 'Layihə' %}: {{ project.name }}</div>
+            <div class="col-lg-3">{% trans 'Stil' %}: {{ project.style }}</div>
+            <div class="col-lg-3">{% trans 'Xidmət' %}: {{ project.service }}</div>
+            <div class="col-lg-3">{% trans 'Hazırlama tarixi' %}: {{ project.start_date }}</div>
+        </div>
+        <hr>
+    </div>
+    <section class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-12">
+                    {{ project.description|safe }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="top">
+                    <ul>
+                        {% for image in project.project_photo.all %}
+                            <li><a href="#img_{{ image.id }}"><img src="{{ image.photo.url }}"></a></li>
+                        {% endfor %}
+                    </ul>
+                    {% for image in project.project_photo.all %}
+
+                        <a href="#_{{ image.id }}" class="lightbox trans" id="img_{{ image.id }}"><img
+                                src="{{ image.photo.url }}"></a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% include 'etc/footer.html' %}
+{% endblock content %}

@@ -1,0 +1,58 @@
+{% extends 'wrapper/base.html' %}
+{% load static %}
+{% load i18n %}
+    {% block title %}<title>{% trans 'Layihələr' %}</title>{% endblock title %}
+{% block content %}
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <h1 class="display-1 text-white animated slideInDown">{% trans 'Layihələr' %}</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb text-uppercase mb-0">
+                    <li class="breadcrumb-item"><a class="text-white" href="{% url 'home' %}">{% trans 'Ana səhifə' %}</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">{% trans 'Layihələr' %}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <section class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center mb-5">
+                    <h1 class="display-4"></h1>
+                    <p class="lead">{% trans 'Uğurla sona çatdırılan layihələr. Bizi seçdiyiniz üçün sizə təşəkkür edirik!' %}</p>
+                </div>
+            </div>
+            <div class="row">
+                {% for project in projects %}
+                <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card text-white card-has-bg click-col" style="background-image:url('{{ project.project_photo.first.photo.url }}');"><img class="card-img d-none" src="{{ project.project_photo.first.photo.url }}" alt="{{ project.name}} ">
+                        <div class="card-img-overlay d-flex flex-column">
+                            <div class="card-body">
+                                <small class="card-meta mb-2">{{ project.service}}</small>
+                                <h4 class="card-title mt-0 "><a class="text-white" href="{{project.get_project_url}}">{{ project.name}}</a></h4>
+                                <small><i class="far fa-clock"></i> {{ project.start_date }}</small>
+                            </div>
+                            <div class="card-footer">
+                                <div class="media">
+{#                                    <img class="mr-3 rounded-circle"#}
+{#                                         src="https://assets.codepen.io/460692/internal/avatars/users/default.png"#}
+{#                                         alt="Generic placeholder image" style="max-width:50px">#}
+                                    <div class="media-body">
+                                        <h6 class="my-0 text-white d-block">Concept House</h6>
+                                        <small>{{ project.style}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% include 'etc/footer.html' %}
+{% endblock content %}

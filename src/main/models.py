@@ -123,6 +123,9 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
+    def get_project_url(self):
+        return reverse('project_detail', args=[self.slug])
+
 
 class ProjectPhoto(models.Model):
     chooice = models.ForeignKey(Project, verbose_name='Layihə', on_delete=models.CASCADE, related_name='project_photo')

@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView, DetailView
 
-from src.main.models import About, Services, WhyUs, Team, Testimonials
+from src.main.models import About, Services, WhyUs, Team, Testimonials, Project
 
 
 class Home(TemplateView):
@@ -35,3 +35,18 @@ class ServiceDetailView(DetailView):
 
 class ContactView(TemplateView):
     template_name = 'contact.html'
+
+
+class ProjectsView(TemplateView):
+    def get_context_data(self, **kwargs):
+        context = super(ProjectsView, self).get_context_data(**kwargs)
+        context['projects'] = Project.objects.order_by('id')
+        return context
+
+    template_name = 'projects.html'
+
+
+class ProjectDetailView(DetailView):
+    model = Project
+    template_name = 'project_detail.html'
+    context_object_name = 'project'

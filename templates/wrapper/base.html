@@ -5,13 +5,13 @@
 {% get_current_language as LANGUAGE %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE }}">
-
+{% get_seo as seo %}
 <head>
     <meta charset="utf-8">
-    <title>Concept House</title>
+    {% block title %}<title>{{ seo.title }}</title>{% endblock title %}
+    {% block description %}<meta content="{{ seo.description|truncatechars:255 }}" name="description">{% endblock description %}
+    {% block keywords %}<meta content="{{ seo.keywords }}" name="keywords">{% endblock keywords %}
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
 
     <!-- Favicon -->
     <link href="{% static 'img/favicon.ico' %}" rel="icon">
@@ -97,18 +97,7 @@
                         {% endfor %}
                     </div>
                 </div>
-
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu border-0 m-0">
-                        <a href="feature.html" class="dropdown-item">Our Features</a>
-                        <a href="project.html" class="dropdown-item">Our Projects</a>
-                        <a href="team.html" class="dropdown-item">Team Members</a>
-                        <a href="appointment.html" class="dropdown-item">Appointment</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
+                <a href="{% url 'projects' %}"class="nav-item nav-link {% if request.resolver_match.url_name == 'projects' %}active{% endif %}">{% trans 'LAYİHƏLƏR' %}</a>
                 <a href="{% url 'contact' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">{% trans 'ƏLAQƏ' %}</a>
             </div>
 {#            <a href="" class="btn btn-primary py-2 px-4 d-none d-lg-block">Appointment</a>#}
