@@ -64,7 +64,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'conceptbase',
+        'NAME': 'conceptbasee',
         'USER': 'conceptuser',
         'PASSWORD': 's5286606@!',
         'HOST': 'localhost',
