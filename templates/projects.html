@@ -16,18 +16,23 @@
         </div>
     </div>
     <!-- Page Header End -->
-
-    <section class="wrapper">
+    <!-- project Start -->
+    <div class="container-xxl py-5">
         <div class="container">
-            <div class="row">
-                <div class="col text-center mb-5">
-                    <h1 class="display-4"></h1>
-                    <p class="lead">{% trans 'Uğurla sona çatdırılan layihələr. Bizi seçdiyiniz üçün sizə təşəkkür edirik!' %}</p>
+            <div class="row g-5">
+                <div class="col-lg-12 wow fadeIn" data-wow-delay="0.5s">
+                  <center><h4 class="section-title">{% trans 'Layihələr' %}</h4>
+                   {% trans 'Uğurla sona çatdırılan layihələr. Bizi seçdiyiniz üçün sizə təşəkkür edirik!' %}</center>
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- project End -->
+        <div class="container">
+
             <div class="row">
                 {% for project in projects %}
-                <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                    <a style="z-index: 9999;"  href="{{ project.get_project_url }}"> <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                     <div class="card text-white card-has-bg click-col" style="background-image:url('{{ project.project_photo.first.photo.url }}');"><img class="card-img d-none" src="{{ project.project_photo.first.photo.url }}" alt="{{ project.name}} ">
                         <div class="card-img-overlay d-flex flex-column">
                             <div class="card-body">
@@ -47,12 +52,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div></a>
                 </div>
                 {% endfor %}
             </div>
         </div>
-    </section>
 
 {% include 'etc/footer.html' %}
 {% endblock content %}
