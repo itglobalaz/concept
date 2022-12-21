@@ -11,10 +11,15 @@
                     <a href="tel:{{ config.phone }}"><p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>{{ config.phone}}</p></a>
                     <a href="mailto:{{ config.email }}"><p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>{{ config.email }}</p></a>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-outline-body me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                {% get_social as socials %}
+                        {% for social in socials %}
+                             {% if social.name == 'whatsapp' %}
+
+                        <a class="btn btn-square btn-outline-body me-1" target="_blank" href="https://api.whatsapp.com/send?phone={{ social.url }}&amp;text={% if current_lang == 'ru' %}Здравствуйте. У меня вопрос!{% else %}Salam, mənim sualım var.{% endif %}"><i class="fab fa-{{ social.name }}"></i></a>
+                            {% else %}
+                        <a class="btn btn-square btn-outline-body me-1" target="_blank" href="{{ social.url }}"><i class="fab fa-{{ social.name }}"></i></a>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -27,10 +32,10 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-light mb-4">{% trans 'Xəritə' %}</h3>
-                    <a class="btn btn-link" href="">{% trans 'Ana səhifə' %}</a>
-                    <a class="btn btn-link" href="">{% trans 'Haqqımızda' %}</a>
-                    <a class="btn btn-link" href="">{% trans 'Xidmətlər' %}</a>
-                    <a class="btn btn-link" href="">{% trans 'Əlaqə' %}</a>
+                    <a class="btn btn-link" href="{% url 'home' %}">{% trans 'Ana səhifə' %}</a>
+                    <a class="btn btn-link" href="{% url 'about' %}">{% trans 'Haqqımızda' %}</a>
+                    <a class="btn btn-link" href="{% url 'projects' %}">{% trans 'Layihələr' %}</a>
+                    <a class="btn btn-link" href="{% url 'contact' %}">{% trans 'Əlaqə' %}</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-light mb-4">{% trans 'Abunə olun' %}</h3>

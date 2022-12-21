@@ -111,7 +111,8 @@ class Testimonials(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=255, verbose_name="Ad")
     description = models.TextField(verbose_name='Məlumat')
-    start_date = models.DateField(verbose_name="Tarix")
+    start_date = models.DateField(verbose_name="Başlama tarixi")
+    end_date = models.DateField(verbose_name="Bitmə tarixi", null=True)
     service = models.ForeignKey(Services, on_delete=models.CASCADE, verbose_name="Xidmət")
     style = models.CharField(max_length=255, verbose_name="Stil")
     slug = models.SlugField(unique=True, null=True)

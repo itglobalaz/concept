@@ -7,5 +7,7 @@ urlpatterns = [
     path('service/<slug>/', views.ServiceDetailView.as_view(), name='service_detail'),
     path('contact/', views.ContactView.as_view(), name='contact'),
     path('projects/', views.ProjectsView.as_view(), name='projects'),
-    path('project/<slug>/', views.ProjectDetailView.as_view(), name='project_detail')
+    path('project/<slug>/', views.ProjectDetailView.as_view(), name='project_detail'),
+    path('send_messages/', views.SendContactMessage.as_view(), name='send_message')
+
 ]

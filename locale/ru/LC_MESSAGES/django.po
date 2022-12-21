@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 20:47+0300\n"
+"POT-Creation-Date: 2022-12-19 15:16+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,43 +20,44 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\templates\about.html:8 .\templates\about.html:12 .\templates\about.html:31
-#: .\templates\etc\footer.html:31 .\templates\index.html:42
-#: .\templates\wrapper\base.html:91
+#: .\templates\about.html:4 .\templates\about.html:10 .\templates\about.html:14
+#: .\templates\about.html:33 .\templates\etc\footer.html:36
+#: .\templates\index.html:43 .\templates\wrapper\base.html:91
 msgid "Haqqımızda"
 msgstr "О нас"
 
-#: .\templates\about.html:11 .\templates\contact.html:11
-#: .\templates\etc\footer.html:30 .\templates\service_detail.html:11
+#: .\templates\about.html:13 .\templates\contact.html:12
+#: .\templates\etc\footer.html:35 .\templates\project_detail.html:13
+#: .\templates\projects.html:12 .\templates\service_detail.html:13
 msgid "Ana səhifə"
 msgstr "Главная"
 
-#: .\templates\about.html:40 .\templates\index.html:51
+#: .\templates\about.html:42 .\templates\index.html:52
 msgid "İldən"
 msgstr "Лет"
 
-#: .\templates\about.html:41 .\templates\index.html:52
+#: .\templates\about.html:43 .\templates\index.html:53
 msgid "Çox"
 msgstr "Много"
 
-#: .\templates\about.html:42 .\templates\index.html:53
+#: .\templates\about.html:44 .\templates\index.html:54
 msgid "İş təcrübəsi"
 msgstr "Опыт работы"
 
-#: .\templates\about.html:57 .\templates\index.html:96
+#: .\templates\about.html:59 .\templates\index.html:97
 msgid "NİYƏ BİZ?"
 msgstr "ПОЧЕМУ МЫ?"
 
-#: .\templates\about.html:91
+#: .\templates\about.html:93
 msgid "Komandamız"
 msgstr "Наша команда"
 
-#: .\templates\about.html:92
+#: .\templates\about.html:94
 msgid "Bizim peşəkar komandamızla tanış olun"
 msgstr "Познакомтесь с нашей профессиональной командой"
 
-#: .\templates\contact.html:8 .\templates\contact.html:12
-#: .\templates\etc\footer.html:32
+#: .\templates\contact.html:4 .\templates\contact.html:9
+#: .\templates\contact.html:13 .\templates\etc\footer.html:38
 msgid "Əlaqə"
 msgstr "Контакты"
 
@@ -64,45 +65,100 @@ msgstr "Контакты"
 msgid "Ünvan"
 msgstr "Адрес"
 
-#: .\templates\etc\footer.html:21
+#: .\templates\etc\footer.html:26
 msgid "Xidmətlər"
 msgstr "Услуги"
 
-#: .\templates\etc\footer.html:29
+#: .\templates\etc\footer.html:34
 msgid "Xəritə"
 msgstr "Карта"
 
-#: .\templates\etc\footer.html:35
+#: .\templates\etc\footer.html:37 .\templates\index.html:131
+#: .\templates\projects.html:4 .\templates\projects.html:9
+#: .\templates\projects.html:13
+msgid "Layihələr"
+msgstr "Проекты"
+
+#: .\templates\etc\footer.html:41
 msgid "Abunə olun"
 msgstr "Подпишитесь"
 
-#: .\templates\etc\footer.html:36
+#: .\templates\etc\footer.html:42
 msgid "Yeniliklərdən xəbər tutmaq üçün abunə olun"
 msgstr "Подпишитесь что бы первым узнать о новостей"
 
-#: .\templates\etc\footer.html:38
+#: .\templates\etc\footer.html:44
 msgid "Poçt adresiniz"
 msgstr "Почта"
 
-#: .\templates\etc\footer.html:39
+#: .\templates\etc\footer.html:45
 msgid "Abunə ol"
 msgstr "Подписаться"
 
-#: .\templates\etc\footer.html:48
+#: .\templates\etc\footer.html:54
 msgid "Bütün hüquqlar qorunur"
 msgstr "Все права защищены"
 
-#: .\templates\index.html:56 .\templates\index.html:80
+#: .\templates\index.html:57 .\templates\index.html:81
+#: .\templates\index.html:162
 msgid "Ətraflı"
 msgstr "Подробно"
 
-#: .\templates\index.html:68
+#: .\templates\index.html:69
 msgid "XİDMƏTLƏRİMİZ"
 msgstr "УСЛУГИ"
 
-#: .\templates\index.html:69
+#: .\templates\index.html:70
 msgid "10 il sizinlə!"
 msgstr "10 лет с вами!"
+
+#: .\templates\index.html:158
+msgid "Dizayn"
+msgstr "Стиль"
+
+#: .\templates\index.html:159 .\templates\project_detail.html:25
+#: .\templates\service_detail.html:4
+msgid "Xidmət"
+msgstr "Услуга"
+
+#: .\templates\index.html:160
+#, fuzzy
+#| msgid "Hazırlama tarixi"
+msgid "Başlama tarixi"
+msgstr "Дата начала"
+
+#: .\templates\index.html:161
+msgid "Bitmə tarixi"
+msgstr "Дата завершения"
+
+#: .\templates\index.html:259
+msgid "Müştəri rəyi"
+msgstr "Отзывы"
+
+#: .\templates\index.html:260
+msgid "İşimiz haqqında müştərilərin rəyi"
+msgstr "Отзывы о наших клиентов"
+
+#: .\templates\project_detail.html:14 .\templates\wrapper\base.html:100
+msgid "LAYİHƏLƏR"
+msgstr "ПРОЕКТЫ"
+
+#: .\templates\project_detail.html:23
+msgid "Layihə"
+msgstr "Проект"
+
+#: .\templates\project_detail.html:24
+msgid "Stil"
+msgstr "Стиль"
+
+#: .\templates\project_detail.html:26
+msgid "Tarix"
+msgstr "Дата"
+
+#: .\templates\projects.html:25
+msgid ""
+"Uğurla sona çatdırılan layihələr. Bizi seçdiyiniz üçün sizə təşəkkür edirik!"
+msgstr "Успешно завершенные проекты. Спасибо, что выбрали нас!"
 
 #: .\templates\wrapper\base.html:90
 msgid "ANA SƏHİFƏ"
@@ -112,7 +168,7 @@ msgstr "ГЛАВНАЯ"
 msgid "XİDMƏTLƏR"
 msgstr "УСЛУГИ"
 
-#: .\templates\wrapper\base.html:112
+#: .\templates\wrapper\base.html:101
 msgid "ƏLAQƏ"
 msgstr "КОНТАКТЫ"
 
