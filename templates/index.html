@@ -73,9 +73,9 @@
                 {% for service in services %}
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="{{service.service_photo.url}}" alt="{{ service.name }}">
+                        <img class="bg-img" src="{% if service.service_photo %}{{service.service_photo.url}}{% endif %}" alt="{{ service.name }}">
                         <div class="service-text p-5">
-                            <img class="mb-4" src="{{service.service_icon.url}}" alt="Icon">
+                            <img class="mb-4" src="{% if service.service_icon %}{{service.service_icon.url}}{% endif %}" alt="{{ service.name }}">
                             <h3 class="mb-3">{{ service.name }}</h3>
                             <p class="mb-4">{{ service.description|truncatechars:100|striptags|cut:"&nbsp;" }}</p>
                             <a class="btn" href="{{ service.get_service_url }}"><i class="fa fa-plus text-primary me-3"></i>{% trans 'Ətraflı' %}</a>
