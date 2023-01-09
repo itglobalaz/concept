@@ -5,7 +5,7 @@ from config.etc.mail_settings import *
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k_w*)6x0@w6bncj$q$1k$hufhxhan#qsov1etl03aw#vlc62c('
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
